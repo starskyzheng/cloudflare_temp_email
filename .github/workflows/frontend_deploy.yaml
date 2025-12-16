@@ -33,8 +33,8 @@ jobs:
       - name: Deploy Frontend for ${{ github.ref_name }}
         run: |
           cd frontend/
-          echo "${{ secrets.FRONTEND_ENV }}" > .env.prod
-          export project_name=${{ secrets.FRONTEND_NAME }}
+          echo "${{ vars.FRONTEND_ENV }}" > .env.prod
+          export project_name=${{ vars.FRONTEND_NAME }}
           pnpm install --no-frozen-lockfile
           export frontend_branch=${{ secrets.FRONTEND_BRANCH }}
           if [ -n "$frontend_branch" ]; then
